@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Honk&family=Protest+Guerrilla&family=Rubik+Glitch+Pop&display=swap');
+        body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .video {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit: cover;
+        }
+        .container{
+            position: relative;
+            height: 100vh;
+            width: 100%;
+        }
+        .head-name{
+            position: absolute;
+            z-index: 10;
+            font-family: "Protest Guerrilla", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: white;
+            font-size: 10rem;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.5s ease-out;
+        }
+        .start{
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 60;
+            padding: 1rem 3rem;
+            font-size: 30px;
+            border: 1px solid;
+            border-color: white;
+            border-radius: 20px;
+            background: none ;
+            color: white;
+            font-family: "Protest Guerrilla", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            transition: 0.5s ease;
+        }
+        .start:hover{
+            background-color: white;
+            color: black;
+            transition: 0.5s ease-in;
+        }
+        .nav{
+            width: 100%;
+            height: 0;
+            background-color: black;
+            z-index: 40;
+            position: fixed;
+            overflow: hidden;
+            transition:0.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav.active{
+            height: 100px;
+        }
+
+        .start.hidden{
+            opacity: 0;
+            pointer-events: none;
+        }
+        .head-name.hidden{
+            opacity: 0;
+            pointer-events: none;
+        }
+        .nav-item{
+            color:white;
+            font-family: "Protest Guerrilla", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+         
+            font-size: 30px;
+        }
+        .info{
+            z-index: 50;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: 0.5s ease;
+        }
+        .info.active{
+            opacity: 1;
+        }
+        .info .column .img img{
+            width: 500px;
+            border: 1px;
+            border-radius: 10px;
+        }
+        .info .column{
+            columns: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li ><a href="#" class="nav-item">Home</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1 class="head-name">FIREFLY</h1>
+        <button class="start" onclick="start()">Mulai</button>
+    <video class="video"  autoplay muted loop>
+        <source src="./firefly.mp4" type="video/mp4">
+    </video>
+    </div>
+
+    <div class="info">
+        <div class="column">
+            <div class="img">
+                <img src="https://wotpack.ru/wp-content/uploads/2023/10/Svetljachok-v-Honkai-Star-Rail-scaled.jpg" alt="">
+            </div>
+            <div class="detail">
+                <ul>
+                    <li>test</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+    document.querySelector('.start').addEventListener('mouseover', function() {
+        let text = document.querySelector('.head-name');
+        text.style.color = 'yellow';
+    });
+
+    document.querySelector('.start').addEventListener('mouseout', function() {
+        let text = document.querySelector('.head-name');
+        text.style.color = 'white';
+    });
+
+    function start(){
+        let nav  = document.querySelector('.nav');
+        let start = document.querySelector('.start');
+        let text = document.querySelector('.head-name');
+        let info = document.querySelector('.info');
+
+        nav.classList.add('active');
+        start.classList.add('hidden');
+        text.classList.add('hidden'); 
+        info.classList.add('active');
+    }
+</script>
+</html> 
